@@ -1,0 +1,96 @@
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description:
+  Root Stack
+  Deploys a highly available, elastic, scalable, stateless WordPress environment.
+  This root stack will launch multiple nested stacks for differing tiers.
+      !! Works only in the 'us-east-1/2' and 'us-west-1/2' AWS Regions.
+metadata:
+  Author: Abdul Yahya (abdul@datapeak.studio)
+
+AWS::CloudFormation::Interface:
+  ParameterGroups:
+  - Label:
+      default: General AWS
+    Parameters:
+      - AdminEmail
+      - WPDomainName
+      - EC2KeyName
+      - SshAccessCidr
+      - UseCloudFrontBoolean
+      - CloudFrontAcmCertificate
+  - Label:
+      default: Network
+    Parameters:
+      - NumberOfAvailabilityZones
+      - AvailabilityZones
+      - VpcCidr
+      - VpcTenancy
+      - PublicSubnet0Cidr
+      - PublicSubnet1Cidr
+      - PublicSubnet2Cidr
+      - PublicSubnet3Cidr
+      - PublicSubnet4Cidr
+      - PublicSubnet5Cidr
+      - WebSubnet0Cidr
+      - WebSubnet1Cidr
+      - WebSubnet2Cidr
+      - WebSubnet3Cidr
+      - WebSubnet4Cidr
+      - WebSubnet5Cidr
+      - DataSubnet0Cidr
+      - DataSubnet1Cidr
+      - DataSubnet2Cidr
+      - DataSubnet3Cidr
+      - DataSubnet4Cidr
+      - DataSubnet5Cidr
+  - Label:
+      default: File System Tier
+    Parameters:
+      - EfsPerformanceMode
+      - EfsEncryptedBoolean
+      - EfsCmk
+      - EfsGrowth
+      - EfsGrowthInstanceType
+      - EfsCreateAlarms
+      - EfsAlarmsInstanceType
+      - EfsWarningThreshold
+      - EfsCriticalThreshold
+  - Label:
+      default: Database Tier
+    Parameters:
+      - DatabaseInstanceType
+      - DatabaseEncryptedBoolean
+      - DatabaseCmk
+      - DatabaseMasterUsername
+      - DatabaseMasterPassword
+      - DatabaseName
+      - UseElastiCacheBoolean
+      - ElastiCacheNodeType
+    - Label:
+        default: Bastion Tier
+      Parameters:
+        - BastionInstanceType
+    - Label:
+        default: Web Tier
+      Parameters:
+        - PublicAlbAcmCertificate
+        - PHPVersion
+        - PHPIniOverride
+        - WebInstanceType
+        - WebAsgMax
+        - WebAsgMin
+    - Label:
+        default: WordPress
+      Parameters:
+        - WPVersion
+        - WPSiteTitle
+        - WPAdminUsername
+        - WPAdminPassword
+        - WPDirectory
+        - WPLocale
+
+
+
+
+
