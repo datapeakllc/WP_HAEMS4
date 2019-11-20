@@ -22,7 +22,7 @@ AWS::CloudFormation::Interface:
   - Label:
       default: Network
     Parameters:
-      - NumberOfAvailabilityZones
+      - NumberOfAZs
       - AvailabilityZones
       - VpcCidr
       - VpcTenancy
@@ -89,8 +89,122 @@ AWS::CloudFormation::Interface:
         - WPAdminPassword
         - WPDirectory
         - WPLocale
-
-
-
-
-
+    ParameterLabels:
+      BastionInstanceType:
+        default: Bastion Instance Type
+      CloudFrontAcmCertificate:
+        default: CloudFront Certificate ARN
+      DatabaseCmk:
+        default: AWS KMS CMK for RDS 
+      DatabaseEncrpytedBoolean:
+        default: Encrypted DB Cluster
+      DatabaseInstanceType:
+        default: DB Instance Class
+      DatabaseMasterUsername:
+        default: DB Master Username
+      DatabaseMasterPassword:
+        default: DB Master Password
+      DatabaseName:
+        default: DB Name
+      EfsAlarmsInstanceType:
+        default: Instance Type
+      EfsCmk:
+        default: AWS KMS CMK for EFS
+      EfsCreateAlarms:
+        default: Create EFS alarms
+      EfsEncrpytedBoolean:
+        default: Encrpyted EFS?
+      EfsGrowth:
+        default: Add dummy data (GiB)
+      EfsGrowthInstanceType:
+        default: Instance Type
+      EfsCriticalThreshold:
+        default: Critical Threshold (Minutes)
+      EfsWarningThreshold:
+        default: Warning Threshold (Minutes)
+      EfsPerformanceMode:
+        default: EFS Performance Mode
+      ElastiCacheNodeType:
+        default: Cache Cluster Node Type
+      EC2KeyName:
+        default: EC2 Key Pair
+      PHPIniOverride:
+        default: AWS php.ini Overrides
+      PublicAlbAcmCertificate:
+        default: ALB Certificate ARN
+      SshAccessCidr:
+        default: SSH Access From
+      UseElastiCacheBoolean:
+        default: Cache Cluster (ElastiCache)
+      UseCloudFrontBoolean:
+        default: CDN (CloudFront)
+      UseRoute53Boolean:
+        default: DNS record set (Route53)
+      WebAsgMax:
+        default: Web ASG Max
+      WebAsgMin:
+        default: Web ASG Min
+      WebInstanceType:
+        default: Web Tier Instance Type
+      WPTitle:
+        default: Site Title
+      WPAdminUsername:
+        default: Admin Username
+      WPAdminPassword:
+        default: Admin Password
+      AdminEmail:
+        default: Email Address
+      WPDirectory:
+        default: Site Directory
+      WPDomainName:
+        default: Site Domain
+      WPLocale:
+        default: Language Code
+      WPVersion:
+        default: WordPress Version
+      AvailabilityZones:
+        default: Availability Zones
+      NumberOfAZs:
+        default: Number of Availability Zones
+      VpcCidr:
+        default: VpcCidr
+      VpcTenancy:
+        default: VpcTenancy
+      PHPVersion:
+        default: PHP Version
+      PublicSubnet0Cidr:
+        default: Public Subnet 0
+      PublicSubnet1Cidr:
+        default: Public Subnet 1
+      PublicSubnet2Cidr:
+        default: Public Subnet 2
+      PublicSubnet3Cidr:
+        default: Public Subnet 3
+      PublicSubnet4Cidr:
+        default: Public Subnet 4
+      PublicSubnet5Cidr:
+        default: Public Subnet 5
+      WebSubnet0Cidr:
+        default: Web Subnet 0
+      WebSubnet1Cidr:
+        default: Web Subnet 1
+      WebSubnet2Cidr:
+        default: Web Subnet 2
+      WebSubnet3Cidr:
+        default: Web Subnet 3
+      WebSubnet4Cidr:
+        default: Web Subnet 4
+      WebSubnet5Cidr:
+        default: Web Subnet 5
+      DataSubnet0Cidr:
+        default: Data Subnet 0
+      DataSubnet1Cidr:
+        default: Data Subnet 1
+      DataSubnet2Cidr:
+        default: Data Subnet 2
+      DataSubnet3Cidr:
+        default: Data Subnet 3
+      DataSubnet4Cidr:
+        default: Data Subnet 4
+      DataSubnet5Cidr:
+        default: Data Subnet 5
