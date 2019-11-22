@@ -1,0 +1,26 @@
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description:
+	Reference Architecture\: Hosting WordPress on AWS - Create Route53 Record Set
+Metadata:
+	Authors:
+		Description: Abdul Yahya (abdul@datapeak.studio)
+
+AWS::CloudFormation::Interface:
+	ParameterGroups:
+	- Label:
+			default: Route 53 Parameters
+		Parameters:
+			- WPDomainName
+			- DnsEndpoint
+			- DnsHostId
+	ParameterLabels:
+		DnsEndpoint:
+			default: DNS Endpoint
+		DnsHostId:
+			default: DNS Host Id
+		WPDomainName:
+			default: Site Domain
+
+Parameters:
+
